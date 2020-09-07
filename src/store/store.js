@@ -1,13 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import thunkMiddleware from 'redux-thunk';
 import rootReducer from './../reducers/main.js';
 import exampleVideoData from '../data/exampleVideoData.js';
+import { composeWithDevTools } from "redux-devtools-extension";
 
 // TODO:  Create your redux store, apply thunk as a middleware, and export it!
+const middlewareEnhancer = applyMiddleware(thunkMiddleware);
+const composedEnhancers = composeWithDevTools(middlewareEnhancer);
+
+const defaultState = { currentVideo: exampleVideoData[0], videoList: exampleVideoData }
+
 const store = createStore(rootReducer,
-  // default testing video data here
-  { currentVideo: exampleVideoData[0], videoList: exampleVideoData },
-  applyMiddleware(thunk));
+  defaultState,
+  composedEnhancers);
 
 
 export default store;
