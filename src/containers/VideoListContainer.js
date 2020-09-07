@@ -8,7 +8,7 @@ var mapStateToProps = (state) => ({
 });
 
 // same idea for mapDispatchToProps as SearchContainer
-var mapDispatchToProps = (dipatch) => ({
+var mapDispatchToProps = (dispatch) => ({
   // prop called handleVideoListEntryTitleClick per spec
   handleVideoListEntryTitleClick: (video) => {
     dispatch(changeVideo(video));
