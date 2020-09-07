@@ -10,9 +10,7 @@ import videoList from './videoList.js';
 // }
 
 var rootReducer = combineReducers({
-  // defaultState,   see above
-  videoList: videoList,
-  currentVideo: currentVideo
+  currentVideo, videoList
 });
 
 
